@@ -34,3 +34,7 @@ The third line 0 0 0 1 1 1 specifies the class labels for each of the 6 samples.
 
 Sample 1, 2, and 3 belong to Class 0 (labeled as "0").
 Sample 4, 5, and 6 belong to Class 1 (labeled as "1").
+
+########################################################################################################################
+
+always look at the index file 
