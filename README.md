@@ -38,3 +38,4 @@ Sample 4, 5, and 6 belong to Class 1 (labeled as "1").
 ########################################################################################################################
 
 always look at the index file 
+soundhar@MAC308219 GSEA_4.3.2 % bash gsea-cli.sh GSEA -res ./IN_GSEA_inputs/IN_cont_vs_treated.normalised_count_nfcore_diffabundance.txt -cls ./IN_GSEA_inputs/iN.cls -gmx ./msigdb_v2023.1.Hs_GMTs/c2.cp.reactome.v2023.1.Hs.symbols.gmt -collapse false -rpt_label run6_c2.cp.reactome.v2023.1.Hs
