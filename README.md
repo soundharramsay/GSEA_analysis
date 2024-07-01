@@ -1,4 +1,4 @@
-# GSEA_analysis
+-# GSEA_analysis
 GSEA_analaysis
 
 # Gene_expression_matrix
@@ -89,7 +89,7 @@ https://software.broadinstitute.org/cancer/software/gsea/wiki/index.php/Data_for
     GSEA \
     -gmx /Users/soundhar/Desktop/GSEA_4.3.2/msigdb_v2023.1.Hs_GMTs/c2.cp.biocarta.v2023.1.Hs.symbols.gmt \
     -cls ./k562.e10.cls \
-    -res ./e10.all.normalised_counts.txt \
+    -res ./e10.all.normalised_counts.txt \  ## only txt format 
     -rpt_label e10.c2.cp.biocarta.v20 \
     -collapse false \
   -metric Diff_of_Classes ---default requires 3 reps per condition
