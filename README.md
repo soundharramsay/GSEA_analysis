@@ -131,3 +131,6 @@ do
         -cls ./nt_Vs_e10.cls
 done
 
+####### result 
+
+look for idex.html file 
