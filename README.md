@@ -72,19 +72,6 @@ Explanation
 https://software.broadinstitute.org/cancer/software/gsea/wiki/index.php/Data_formats#CLS:_Categorical_.28e.g_tumor_vs_normal.29_class_file_format_.28.2A.cls.29
 
  
-
-
-
-
-
-
-
-
-
-
-
-
-
 (base) soundhar@MAC308219 4.GSEA % /Users/soundhar/Desktop/GSEA_4.3.2/gsea-cli.sh \
     GSEA \
     -gmx /Users/soundhar/Desktop/GSEA_4.3.2/msigdb_v2023.1.Hs_GMTs/c2.cp.biocarta.v2023.1.Hs.symbols.gmt \
@@ -100,3 +87,47 @@ https://software.broadinstitute.org/cancer/software/gsea/wiki/index.php/Data_for
 
 
 ![image](https://github.com/soundharramsay/GSEA_analysis/assets/32353704/701722fa-d59c-41d8-a571-ab67a079cd69)
+
+
+
+
+BASH script 
+#!/bin/bash
+
+# Base path for GMT files
+base_path="/Users/soundhar/Desktop/GSEA_4.3.2/msigdb_v2023.1.Hs_GMTs"
+
+# List of GMT files
+gmt_files=(
+    "c2.cp.kegg.v2023.1.Hs.symbols.gmt"
+    "h.all.v2023.1.Hs.symbols.gmt"
+    "c3.mir.mir_legacy.v2023.1.Hs.symbols.gmt"
+    "c3.mir.v2023.1.Hs.symbols.gmt"
+    "c3.tft.gtrd.v2023.1.Hs.symbols.gmt"
+    "c5.go.bp.v2023.1.Hs.symbols.gmt"
+    "c5.go.cc.v2023.1.Hs.symbols.gmt"
+    "c5.go.mf.v2023.1.Hs.symbols.gmt"
+    # Add more GMT file paths as needed
+)
+
+# Loop through each GMT file
+for gmt in "${gmt_files[@]}"
+do
+    # Construct the full GMT file path
+    gmt_path="${base_path}/${gmt}"
+
+    # Extract the GMT file name without the path and extension for labeling
+    gmt_name=$(basename "$gmt" .gmt)
+
+    # Construct the report label using the GMT file name
+    rpt_label="e10_vs_nt_${gmt_name}"
+
+    # Run the GSEA command
+    /Users/soundhar/Desktop/GSEA_4.3.2/gsea-cli.sh GSEA \
+        -gmx "$gmt_path" \
+        -res e10_vs_nt_all_normalised_counts.txt \
+        -rpt_label "$rpt_label" \
+        -metric Diff_of_Classes \
+        -cls ./nt_Vs_e10.cls
+done
+
