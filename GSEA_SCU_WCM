@@ -1,1 +1,6 @@
+conda activate GSEA
+module load openjdk/11.0.12_7-gcc-8.2.0-hwcnk6q
 
+# java -version
+
+location : /home/sor4003/store_sor4003/1012_GSEA/GSEA_4.3.3
