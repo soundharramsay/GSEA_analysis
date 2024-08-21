@@ -134,3 +134,47 @@ done
 ####### result 
 
 look for idex.html file 
+
+
+############################################################################################# gene-set option
+
+#!/bin/bash
+
+# Base path for GMT files
+base_path="/Users/soundhar/Desktop/GSEA_4.3.2/msigdb_v2023.1.Hs_GMTs"
+
+# List of GMT files
+gmt_files=(
+    "c2.cp.kegg.v2023.1.Hs.symbols.gmt"
+    "h.all.v2023.1.Hs.symbols.gmt"
+    "c3.mir.mir_legacy.v2023.1.Hs.symbols.gmt"
+    "c3.mir.v2023.1.Hs.symbols.gmt"
+    "c3.tft.gtrd.v2023.1.Hs.symbols.gmt"
+    "c5.go.bp.v2023.1.Hs.symbols.gmt"
+    "c5.go.cc.v2023.1.Hs.symbols.gmt"
+    "c5.go.mf.v2023.1.Hs.symbols.gmt"
+    # Add more GMT file paths as needed
+)
+
+# Loop through each GMT file
+for gmt in "${gmt_files[@]}"
+do
+    # Construct the full GMT file path
+    gmt_path="${base_path}/${gmt}"
+
+    # Extract the GMT file name without the path and extension for labeling
+    gmt_name=$(basename "$gmt" .gmt)
+
+    # Construct the report label using the GMT file name
+    rpt_label="e13_vs_nt_${gmt_name}"
+
+    # Run the GSEA command
+    /Users/soundhar/Desktop/GSEA_4.3.2/gsea-cli.sh GSEA \
+        -res e13_vs_nt_all.normalised_counts.txt \
+        -cls nt_Vs_e13.cls \
+        -gmx "$gmt_path" \
+        -rpt_label "$rpt_label" \
+        -metric Ratio_of_Classes \
+        -permute gene_set \
+        -nperm 1000
+done
