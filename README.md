@@ -57,7 +57,7 @@ soundhar@MAC308219 GSEA_4.3.2 % bash gsea-cli.sh GSEA -res ./IN_GSEA_inputs/IN_c
 
 GSEA 
 
-Input – DESEQ normalized  text format 
+Input – DESEQ normalized  text format (works only with text format)
 ## use excel 
 ###  split and keep on gene name ENSG00000244171.4|PBX2P1
 ### save in .tab delimited txt format 
