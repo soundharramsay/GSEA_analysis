@@ -174,7 +174,7 @@ do
         -cls nt_Vs_e13.cls \
         -gmx "$gmt_path" \
         -rpt_label "$rpt_label" \
-        -metric Ratio_of_Classes \
+        -metric Signal2Noise \
         -permute gene_set \
         -nperm 1000
 done
